@@ -48,7 +48,7 @@
 
             <div class="col-sm-6">
               <label for="password1" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="password1" required>
+              <input type="password" onkeypress="valPass()" class="form-control" id="password1" required>
               <div class="invalid-feedback">
                 Debe ingresar una contraseña válida
               </div>
@@ -57,7 +57,7 @@
 
             <div class="col-sm-6">
               <label for="password2" class="form-label">Repetir contraseña</label>
-              <input type="password" class="form-control" id="password2" required>
+              <input type="password" onkeypress="valPass()" class="form-control" id="password2" required>
               <div class="invalid-feedback">
                 La contraseña no coincide
               </div>
@@ -66,11 +66,12 @@
 
             <div class="col-sm-12">
               <div class="form-check">
-                <button type="button" class="btn btn-link ps-0 text-danger" data-bs-toggle="modal"
+                <button type="button" id="terminosTexto" class="btn btn-link ps-0" data-bs-toggle="modal"
                 data-bs-target="#modalTerminos">Términos del servicio
               </button required>
-              <spam class="text-danger">Aceptar terminos y condiciones</spam>
+              <span class="text-danger" id="span">Aceptar terminos y condiciones</span>
               </div>
+        
               
             </div>
 
