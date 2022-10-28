@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
     
     const btnRegistro = document.getElementById("registro");
 
-    btnRegistro.addEventListener("click", ()=>{
+    btnRegistro.addEventListener("click", (e)=>{
+        e.preventDefault();
         let cartel = document.getElementById("cartel");
         let email = document.getElementById("email").value;
         let emailExpr = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
