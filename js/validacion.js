@@ -7,6 +7,14 @@ let pass2 = document.getElementById("password2").value;
   : document.getElementById("confirmarPass").setCustomValidity("");
 }; */
 
+
+function valPass(){
+  const pass1 = document.getElementById("password1");
+  const pass2 = document.getElementById("password2");
+
+  pass1.value !== pass2.value ? pass2.setCustomValidity("prueba") : pass2.setCustomValidity("");
+}
+
 document.addEventListener("DOMContentLoaded", ()=>{
       
   
@@ -15,9 +23,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const span = document.getElementById("span");
     const terminosTexto = document.getElementById("terminosTexto");
     const aceptarCond = document.getElementById("aceptoCondiciones");
+    
+
     condiciones.addEventListener("click", ()=>{      
       condiciones.checked ? (span.hidden=true, condiciones.classList.remove("btn-outline-danger"), condiciones.classList.add("btn-outline-success"), aceptarCond.classList.remove("text-danger"), aceptarCond.classList.add("text-success"), terminosTexto.classList.remove("text-danger")) : (span.hidden=false, aceptarCond.classList.add("text-danger"), terminosTexto.classList.add("text-danger"), aceptarCond.classList.add("text-success"), condiciones.classList.remove("btn-outline-success"), condiciones.classList.add("btn-outline-danger"));
     });
+
+    
+
+    
     
     const btnRegistro = document.getElementById("registro");
 
