@@ -1,22 +1,22 @@
-function valPass(){
-  const con1 = document.getElementById("password1").value;
-  const con2 = document.getElementById("password2").value;
-  if(con1.length >= 6){
-    console.log("Correcto")
-  } else {
-    console.log("Error")
-  }
-}
+let pass = document.getElementById("password1").value;
+let pass2 = document.getElementById("password2").value;
+
+/* function validarPass(){
+  pass != pass2
+  ? document.getElementById("confirmarPass").setCustomValidity("Passwords don't Match") 
+  : document.getElementById("confirmarPass").setCustomValidity("");
+}; */
 
 document.addEventListener("DOMContentLoaded", ()=>{
       
   
   
-  const condiciones = document.getElementById("terminos");
+    const condiciones = document.getElementById("terminos");
     const span = document.getElementById("span");
     const terminosTexto = document.getElementById("terminosTexto");
+    const aceptarCond = document.getElementById("aceptoCondiciones");
     condiciones.addEventListener("click", ()=>{      
-      condiciones.checked ? (span.hidden=true, terminosTexto.classList.remove("text-danger")) : (span.hidden=false, terminosTexto.classList.add("text-danger"));
+      condiciones.checked ? (span.hidden=true, condiciones.classList.remove("btn-outline-danger"), condiciones.classList.add("btn-outline-success"), aceptarCond.classList.remove("text-danger"), aceptarCond.classList.add("text-success"), terminosTexto.classList.remove("text-danger")) : (span.hidden=false, aceptarCond.classList.add("text-danger"), terminosTexto.classList.add("text-danger"), aceptarCond.classList.add("text-success"), condiciones.classList.remove("btn-outline-success"), condiciones.classList.add("btn-outline-danger"));
     });
     
     const btnRegistro = document.getElementById("registro");
@@ -28,11 +28,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
         let emailExpr = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
         let pass = document.getElementById("password1").value;
         let pass2 = document.getElementById("password2").value;
-        let checkbox = document.getElementById("terminos");        
+        let checkbox = document.getElementById("terminos");
+        let formCompleto = document.getElementById("formCompleto");       
+        
+        
 
-        //console.log(checkbox.checked);
         if(pass.length >= 6 && emailExpr.test(email) && pass===pass2 && checkbox.checked === true){
-            //console.log("CORRECTO")
             let dataSuccess = "";
 
             dataSuccess += `<div class="alert alert-success" role="alert">
@@ -43,6 +44,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
     
         }else{
             //console.log("ERROR")
+            condiciones.classList.add("btn-outline-danger");
+            aceptarCond.classList.add("text-danger");
+            document.getElementById("span").classList.remove("d-none");
+            formCompleto.classList.add("was-validated");
+            terminosTexto.classList.add("text-danger");
             let dataDanger = "";
             dataDanger += `<div class="alert alert-danger" role="alert">
             Datos incorrectos!.
